@@ -5,7 +5,7 @@ struct ContentView: View {
         Button {
             print("Button was tapped")
         } label: {
-            Text("Tap me!")
+            Label("Edit", systemImage: "pencil")
                 .padding()
                 .foregroundStyle(.white)
                 .background(.indigo)
