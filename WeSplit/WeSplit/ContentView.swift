@@ -47,7 +47,7 @@ struct ContentView: View {
                 
                 Section {
                     Text(
-                        checkAmount,
+                        totalPerPerson,
                         format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                     )
                 }
