@@ -1,11 +1,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    func executeDelete() {
+        print("Now deleting...")
+    }
+    
     var body: some View {
-        Text("Your content")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundStyle(.white)
-            .background(.black.gradient)
+        Button("Delete selection") {
+            executeDelete()
+        }
     }
 }
 
