@@ -6,6 +6,7 @@ struct ContentView: View {
     ].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var showingScore = false
+    @State private var wrongAnswear = ""
     @State private var scoreTitle = ""
     @State private var score = 0
     
@@ -66,7 +67,9 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is \(score)")
+            scoreTitle == "Wrong" ?
+                Text("That's the flag of \(wrongAnswear).\n Your score is \(score)") :
+                Text("Your score is \(score)")
         }
     }
     
@@ -77,6 +80,7 @@ struct ContentView: View {
             score += 1
         } else {
             scoreTitle = "Wrong"
+            wrongAnswear = countries[number]
             score -= 1
         }
         
