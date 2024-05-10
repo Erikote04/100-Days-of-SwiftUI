@@ -3,8 +3,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Button("Cancel", role: .cancel, action: {})
-            Button("Delete", role: .destructive, action: {})
+            Button("Button 1") {}
+                .buttonStyle(.bordered)
+            
+            Button("Button 2", role: .destructive) {}
+                .buttonStyle(.bordered)
+            
+            Button("Button 3") {}
+                .buttonStyle(.borderedProminent)
+                .tint(.indigo)
+            
+            Button("Button 4", role: .destructive) {}
+                .buttonStyle(.borderedProminent)
         }
     }
 }
