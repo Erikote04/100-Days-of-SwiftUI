@@ -6,9 +6,11 @@ struct ContentView: View {
     ].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var showingScore = false
+    @State private var showingFinalScore = false
     @State private var wrongAnswear = ""
     @State private var scoreTitle = ""
     @State private var score = 0
+    @State private var questionCount = 0
     
     var body: some View {
         ZStack {
@@ -68,8 +70,13 @@ struct ContentView: View {
             Button("Continue", action: askQuestion)
         } message: {
             scoreTitle == "Wrong" ?
-                Text("That's the flag of \(wrongAnswear).\n Your score is \(score)") :
-                Text("Your score is \(score)")
+            Text("That's the flag of \(wrongAnswear).\n Your score is \(score)") :
+            Text("Your score is \(score)")
+        }
+        .alert("Game Over", isPresented: $showingFinalScore) {
+            Button("Restart", action: resetGame)
+        } message: {
+            Text("Your final score is \(score)")
         }
     }
     
@@ -85,11 +92,23 @@ struct ContentView: View {
         }
         
         showingScore = true
+        questionCount += 1
+        
+        if questionCount >= 8 {
+            showingFinalScore = true
+        }
     }
     
     private func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    private func resetGame() {
+        score = 0
+        questionCount = 0
+        showingScore = false
+        askQuestion()
     }
 }
 
