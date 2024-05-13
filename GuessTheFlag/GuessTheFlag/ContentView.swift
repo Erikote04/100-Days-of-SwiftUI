@@ -41,12 +41,8 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        Button {
+                        FlagImage(country: countries[number]) {
                             flagTapped(number)
-                        } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
                         }
                     }
                 }
@@ -76,7 +72,7 @@ struct ContentView: View {
         .alert("Game Over", isPresented: $showingFinalScore) {
             Button("Restart", action: resetGame)
         } message: {
-            Text("Your final score is \(score)")
+            Text("Your final score is \(score)/8")
         }
     }
     
@@ -109,6 +105,21 @@ struct ContentView: View {
         questionCount = 0
         showingScore = false
         askQuestion()
+    }
+}
+
+struct FlagImage: View {
+    var country: String
+    var action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            Image(country)
+                .clipShape(.capsule)
+                .shadow(radius: 5)
+        }
     }
 }
 
