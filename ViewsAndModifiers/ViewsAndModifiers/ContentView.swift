@@ -2,30 +2,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GridStack(rows: 4, columns: 4) { row, col in
-            HStack {
-                Image(systemName: "\(row * 4 + col).circle")
-                Text("R\(row) C\(col)")
-            }
+        VStack {
+            Text("Hello, World!")
+                .largeBlueFont()
         }
     }
 }
 
-struct GridStack<Content: View>: View {
-    let rows: Int
-    let columns: Int
-    let content: (Int, Int) -> Content
-    
-    var body: some View {
-        VStack {
-            ForEach(0..<rows, id: \.self) { row in
-                HStack {
-                    ForEach(0..<columns, id: \.self) { col in
-                        content(row, col)
-                    }
-                }
-            }
-        }
+struct LargeBlueFont: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundStyle(.blue)
+    }
+}
+
+extension View {
+    func largeBlueFont() -> some View {
+        modifier(LargeBlueFont())
     }
 }
 
