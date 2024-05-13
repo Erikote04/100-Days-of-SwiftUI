@@ -1,15 +1,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    let motto1 = Text("Draco dormiens")
+    
+    var motto2: some View {
+        Text("nunquam titillandus")
+    }
+    
+    @ViewBuilder var spells: some View {
+        Text("Lumos")
+        Text("Obliviate")
+    }
+    
     var body: some View {
         VStack {
-            Text("Gryffindor")
-                .font(.largeTitle) // local modifier: overrides line 12 modifier
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
+            motto1
+                .foregroundStyle(.red)
+            motto2
+                .foregroundStyle(.blue)
         }
-        .font(.title) // environment modifier
+        .padding()
     }
 }
 
