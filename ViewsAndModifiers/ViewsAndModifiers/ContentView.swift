@@ -2,41 +2,50 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 10) {
-            CapsuleText(text: "First")
-                .foregroundStyle(.white)
+        Text("Hello, World!")
+            .titleStyle()
             
-            CapsuleText(text: "Second")
-                .foregroundStyle(.orange)
+        Color.red
+            .frame(width: 300, height: 200)
+            .watermarked(with: "hackingwithswift.com")
             
-            //            Text("First")
-            //                .font(.largeTitle)
-            //                .padding()
-            //                .foregroundStyle(.white)
-            //                .background(.blue)
-            //                .clipShape(.capsule)
-            //
-            //            Text("Second")
-            //                .font(.largeTitle)
-            //                .padding()
-            //                .foregroundStyle(.white)
-            //                .background(.blue)
-            //                .clipShape(.capsule)
-        }
-        .padding()
     }
 }
 
-struct CapsuleText: View {
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundStyle(.white)
+            .padding()
+            .background(.blue)
+            .clipShape(.rect(cornerRadius: 8))
+    }
+}
+
+struct WaterMark: ViewModifier {
     var text: String
     
-    var body: some View {
-        Text(text)
-            .font(.largeTitle)
-            .padding()
-        // .foregroundStyle(.white)
-            .background(.blue)
-            .clipShape(.capsule)
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.white)
+                .padding()
+                .background(.black)
+        }
+    }
+}
+
+extension View {
+    func titleStyle() -> some View {
+        modifier(Title())
+    }
+    
+    func watermarked(with text: String) -> some View {
+        modifier(WaterMark(text: text))
     }
 }
 
