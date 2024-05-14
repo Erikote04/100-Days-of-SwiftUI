@@ -20,21 +20,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("When do you want to wake up?")
-                        .font(.headline)
-                    
+                Section("When do you want to wake up?") {
                     DatePicker(
-                        "Please, enter a time",
+                        "Alarm",
                         selection: $wakeup,
                         displayedComponents: .hourAndMinute
-                    ).labelsHidden()
+                    )
                 }
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Desired amount of sleep")
-                        .font(.headline)
-                    
+                Section("Desired amount of sleep") {
                     Stepper(
                         "\(sleepAmount.formatted()) hours",
                         value: $sleepAmount,
@@ -43,10 +37,7 @@ struct ContentView: View {
                     )
                 }
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Daily coffee intake")
-                        .font(.headline)
-                    
+                Section("Daily coffee intake") {
                     Stepper(
                         "^[\(coffeeAmount) cup](inflect: true)",
                         value: $coffeeAmount,
