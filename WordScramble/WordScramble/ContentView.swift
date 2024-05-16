@@ -53,17 +53,42 @@ struct ContentView: View {
         guard answer.count > 0 else { return }
         
         guard isOriginal(word: answer) else {
-            wordError(title: "Word used already", message: "Be more original!")
+            wordError(
+                title: "Word used already",
+                message: "Be more original!"
+            )
             return
         }
         
         guard isPossible(word: answer) else {
-            wordError(title: "Word not possible", message: "You can't spell that error from \(rootWord)!")
+            wordError(
+                title: "Word not possible",
+                message: "You can't spell that error from \(rootWord)!"
+            )
             return
         }
         
         guard isReal(word: answer) else {
-            wordError(title: "Word not recognized", message: "You can't just made them up, you know!")
+            wordError(
+                title: "Word not recognized",
+                message: "You can't just made them up, you know!"
+            )
+            return
+        }
+        
+        guard isShort(word: answer) else {
+            wordError(
+                title: "Word is too short",
+                message: "Your answer must have three or more letters"
+            )
+            return
+        }
+        
+        guard isEqualToRootWord(word: answer) else {
+            wordError(
+                title: "Word is equal to the given word",
+                message: "Don't be lay, you can do better"
+            )
             return
         }
         
@@ -104,6 +129,14 @@ struct ContentView: View {
         )
 
         return misspelledRange.location == NSNotFound
+    }
+    
+    func isShort(word: String) -> Bool {
+        word.count < 3
+    }
+    
+    func isEqualToRootWord(word: String) -> Bool {
+        word == rootWord
     }
     
     func wordError(title: String, message: String) {
