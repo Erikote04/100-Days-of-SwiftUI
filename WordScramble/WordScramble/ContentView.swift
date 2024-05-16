@@ -9,6 +9,10 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    var score: Int {
+        usedWords.reduce(0) { $0 + $1.count}
+    }
+    
     var body: some View {
         NavigationStack {
             List {
@@ -35,6 +39,11 @@ struct ContentView: View {
             .toolbar {
                 Button("Restart", action: startGame)
             }
+            
+            Text("Score: \(score)")
+                .padding()
+                .font(.largeTitle)
+                .foregroundStyle(.tint)
         }
     }
     
@@ -43,6 +52,8 @@ struct ContentView: View {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
+                newWord = ""
+                usedWords.removeAll()
                 return
             }
         }
@@ -90,7 +101,7 @@ struct ContentView: View {
         guard isEqualToRootWord(word: answer) else {
             wordError(
                 title: "Word is equal to the given word",
-                message: "Don't be lay, you can do better"
+                message: "Don't be lazy, you can do better"
             )
             return
         }
@@ -135,11 +146,11 @@ struct ContentView: View {
     }
     
     func isShort(word: String) -> Bool {
-        word.count < 3
+        word.count > 3
     }
     
     func isEqualToRootWord(word: String) -> Bool {
-        word == rootWord
+        word != rootWord
     }
     
     func wordError(title: String, message: String) {
