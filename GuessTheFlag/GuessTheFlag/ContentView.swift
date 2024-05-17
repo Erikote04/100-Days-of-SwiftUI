@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var score = 0
     @State private var questionCount = 0
     @State private var opacity = [1.0, 1.0, 1.0]
+    @State private var scale: [CGFloat] = [1.0, 1.0, 1.0]
     
     var body: some View {
         ZStack {
@@ -42,7 +43,7 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        FlagImage(country: countries[number], opacity: $opacity[number]) {
+                        FlagImage(country: countries[number], opacity: $opacity[number], scale: $scale[number]) {
                             flagTapped(number)
                         }
                     }
@@ -82,8 +83,10 @@ struct ContentView: View {
             for index in 0..<3 {
                 if index == number {
                     opacity[index] = 1.0
+                    scale[index] = 1.0
                 } else {
                     opacity[index] = 0.25
+                    scale[index] = 0.8
                 }
             }
         }
@@ -110,6 +113,7 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
         withAnimation {
             opacity = [1.0, 1.0, 1.0]
+            scale = [1.0, 1.0, 1.0]
         }
     }
     
@@ -124,6 +128,7 @@ struct ContentView: View {
 struct FlagImage: View {
     var country: String
     @Binding var opacity: Double
+    @Binding var scale: CGFloat
     var action: () -> Void
     
     @State private var rotation: Double = 0
@@ -140,6 +145,7 @@ struct FlagImage: View {
                 .shadow(radius: 5)
                 .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
                 .opacity(opacity)
+                .scaleEffect(scale)
         }
     }
 }
