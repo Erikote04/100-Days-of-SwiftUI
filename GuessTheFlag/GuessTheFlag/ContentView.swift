@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var questionCount = 0
+    @State private var opacity = [1.0, 1.0, 1.0]
     
     var body: some View {
         ZStack {
@@ -41,7 +42,7 @@ struct ContentView: View {
                     }
                     
                     ForEach(0..<3) { number in
-                        FlagImage(country: countries[number]) {
+                        FlagImage(country: countries[number], opacity: $opacity[number]) {
                             flagTapped(number)
                         }
                     }
@@ -77,6 +78,15 @@ struct ContentView: View {
     }
     
     private func flagTapped(_ number: Int) {
+        withAnimation {
+            for index in 0..<3 {
+                if index == number {
+                    opacity[index] = 1.0
+                } else {
+                    opacity[index] = 0.25
+                }
+            }
+        }
         
         if number == correctAnswer {
             scoreTitle = "Correct"
@@ -98,6 +108,9 @@ struct ContentView: View {
     private func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        withAnimation {
+            opacity = [1.0, 1.0, 1.0]
+        }
     }
     
     private func resetGame() {
@@ -110,21 +123,23 @@ struct ContentView: View {
 
 struct FlagImage: View {
     var country: String
+    @Binding var opacity: Double
     var action: () -> Void
     
     @State private var rotation: Double = 0
-    @State private var tapped: Bool = false
     
     var body: some View {
         Button {
-            rotation = tapped ? 0 : 360
-            tapped.toggle()
+            withAnimation {
+                rotation += 360
+            }
             action()
         } label: {
             Image(country)
                 .clipShape(Capsule())
                 .shadow(radius: 5)
                 .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                .opacity(opacity)
         }
     }
 }
