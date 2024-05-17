@@ -112,13 +112,19 @@ struct FlagImage: View {
     var country: String
     var action: () -> Void
     
+    @State private var rotation: Double = 0
+    @State private var tapped: Bool = false
+    
     var body: some View {
         Button {
+            rotation = tapped ? 0 : 360
+            tapped.toggle()
             action()
         } label: {
             Image(country)
-                .clipShape(.capsule)
+                .clipShape(Capsule())
                 .shadow(radius: 5)
+                .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
         }
     }
 }
