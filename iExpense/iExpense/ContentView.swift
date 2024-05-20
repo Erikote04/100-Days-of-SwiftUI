@@ -22,6 +22,11 @@ struct ContentView: View {
                             item.amount,
                             format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                         )
+                        .amountStyle(
+                            color:
+                                item.amount < 10 ? .green :
+                                item.amount < 100 ? .orange : .red
+                        )
                     }
                 }
                 .onDelete(perform: removeItems)
@@ -40,6 +45,21 @@ struct ContentView: View {
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+}
+
+struct ExpenseAmountColor: ViewModifier {
+    var color: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(color)
+    }
+}
+
+extension View {
+    func amountStyle(color: Color) -> some View {
+        modifier(ExpenseAmountColor(color: color))
     }
 }
 
