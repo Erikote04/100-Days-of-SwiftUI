@@ -7,29 +7,19 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            
-                            Text(item.type)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(
-                            item.amount,
-                            format: .currency(code: Locale.current.currency?.identifier ?? "USD")
-                        )
-                        .amountStyle(
-                            color:
-                                item.amount < 10 ? .green :
-                                item.amount < 100 ? .orange : .red
-                        )
+                Section("Personal") {
+                    ForEach(expenses.items.filter { $0.type == "Personal" }) { item in
+                        ExpenseRowView(item: item)
                     }
+                    .onDelete(perform: { removeItems(at: $0, from: "Personal") })
                 }
-                .onDelete(perform: removeItems)
+                
+                Section("Bussiness") {
+                    ForEach(expenses.items.filter { $0.type == "Bussiness" }) { item in
+                        ExpenseRowView(item: item)
+                    }
+                    .onDelete(perform: { removeItems(at: $0, from: "Bussiness") })
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
@@ -43,8 +33,11 @@ struct ContentView: View {
         }
     }
     
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+    func removeItems(at offsets: IndexSet, from type: String) {
+        let IDsToRemove = offsets.map { expenses.items.filter { $0.type == type }[$0].id }
+        expenses.items.removeAll { item in
+            item.type == type && IDsToRemove.contains(item.id)
+        }
     }
 }
 
