@@ -13,6 +13,7 @@
 		BB048D6E2BFB5A380004DE76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB048D6D2BFB5A380004DE76 /* Preview Assets.xcassets */; };
 		BB048D752BFB76490004DE76 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048D742BFB76490004DE76 /* ExpenseItem.swift */; };
 		BB048D772BFB76940004DE76 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048D762BFB76940004DE76 /* Expenses.swift */; };
+		BB048D792BFB79B90004DE76 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048D782BFB79B90004DE76 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		BB048D6D2BFB5A380004DE76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB048D742BFB76490004DE76 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		BB048D762BFB76940004DE76 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		BB048D782BFB79B90004DE76 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				BB048D662BFB5A380004DE76 /* iExpenseApp.swift */,
 				BB048D682BFB5A380004DE76 /* ContentView.swift */,
+				BB048D782BFB79B90004DE76 /* AddView.swift */,
 				BB048D762BFB76940004DE76 /* Expenses.swift */,
 				BB048D742BFB76490004DE76 /* ExpenseItem.swift */,
 				BB048D6A2BFB5A380004DE76 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			files = (
 				BB048D772BFB76940004DE76 /* Expenses.swift in Sources */,
 				BB048D692BFB5A380004DE76 /* ContentView.swift in Sources */,
+				BB048D792BFB79B90004DE76 /* AddView.swift in Sources */,
 				BB048D752BFB76490004DE76 /* ExpenseItem.swift in Sources */,
 				BB048D672BFB5A380004DE76 /* iExpenseApp.swift in Sources */,
 			);
