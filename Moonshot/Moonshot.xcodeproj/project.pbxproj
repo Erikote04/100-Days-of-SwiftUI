@@ -17,6 +17,7 @@
 		BB6AA24B2BFDDA55009A6FD8 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */; };
 		BB6AA24D2BFDDF02009A6FD8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */; };
 		BB6AA24F2BFDE6F3009A6FD8 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA24E2BFDE6F3009A6FD8 /* Color-Theme.swift */; };
+		BB6AA2512BFDEAC3009A6FD8 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA2502BFDEAC3009A6FD8 /* MissionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		BB6AA24E2BFDE6F3009A6FD8 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		BB6AA2502BFDEAC3009A6FD8 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				BB2BA4FF2BFCAC7E0094609A /* MoonshotApp.swift */,
 				BB2BA5012BFCAC7E0094609A /* ContentView.swift */,
+				BB6AA2502BFDEAC3009A6FD8 /* MissionView.swift */,
 				BB6AA2482BFDD9F1009A6FD8 /* Astronaut.swift */,
 				BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */,
 				BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6AA2512BFDEAC3009A6FD8 /* MissionView.swift in Sources */,
 				BB6AA2492BFDD9F1009A6FD8 /* Astronaut.swift in Sources */,
 				BB2BA5022BFCAC7E0094609A /* ContentView.swift in Sources */,
 				BB2BA5002BFCAC7E0094609A /* MoonshotApp.swift in Sources */,
