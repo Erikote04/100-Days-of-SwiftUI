@@ -25,9 +25,9 @@ struct AstronautSliderView: View {
             role: "Commander",
             astronaut: Astronaut(
                 id: "armstrong",
-                name: "Buzz Aldrin",
+                name: "Neil A. Armstrong",
                 description: ""
             )
         )]
-    )
+    ).preferredColorScheme(.dark)
 }

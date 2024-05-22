@@ -8,51 +8,33 @@ struct ContentView: View {
         GridItem(.adaptive(minimum: 150)),
     ]
     
+    @State private var isShowingGrid = true
+    
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
-                            VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .padding()
-                                
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundStyle(.white)
-                                    
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
-                                        .foregroundStyle(.gray)
-                                }
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
-                            }
-                            .clipShape(.rect(cornerRadius: 10))
-                            .overlay (
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
-                            )
-                        }
-                    }
+        TabView {
+            GridLayoutView(astronauts: astronauts, missions: missions)
+                .tabItem {
+                    Image(systemName: "square.grid.2x2")
+                    Text("Moonshot")
                 }
-                .padding([.horizontal, .bottom])
-            }
-            .navigationTitle("Moonshot")
-            .background(.darkBackground)
-            .preferredColorScheme(.dark)
+            
+            MissionListView(astronauts: astronauts, missions: missions)
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("Missions")
+                }
+            
+            AstronautListView(astronauts: astronauts)
+                .tabItem {
+                    Image(systemName: "person.circle")
+                    Text("Astronauts")
+                }
         }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
