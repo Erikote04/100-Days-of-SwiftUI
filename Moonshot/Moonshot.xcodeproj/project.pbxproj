@@ -15,6 +15,7 @@
 		BB2BA5102BFCCA3D0094609A /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = BB2BA50E2BFCCA3D0094609A /* astronauts.json */; };
 		BB6AA2492BFDD9F1009A6FD8 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA2482BFDD9F1009A6FD8 /* Astronaut.swift */; };
 		BB6AA24B2BFDDA55009A6FD8 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */; };
+		BB6AA24D2BFDDF02009A6FD8 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		BB2BA50E2BFCCA3D0094609A /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		BB6AA2482BFDD9F1009A6FD8 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				BB2BA4FF2BFCAC7E0094609A /* MoonshotApp.swift */,
 				BB2BA5012BFCAC7E0094609A /* ContentView.swift */,
 				BB6AA2482BFDD9F1009A6FD8 /* Astronaut.swift */,
+				BB6AA24C2BFDDF02009A6FD8 /* Mission.swift */,
 				BB6AA24A2BFDDA55009A6FD8 /* Bundle-Decodable.swift */,
 				BB2BA50E2BFCCA3D0094609A /* astronauts.json */,
 				BB2BA50D2BFCCA3D0094609A /* missions.json */,
@@ -154,6 +157,7 @@
 				BB6AA2492BFDD9F1009A6FD8 /* Astronaut.swift in Sources */,
 				BB2BA5022BFCAC7E0094609A /* ContentView.swift in Sources */,
 				BB2BA5002BFCAC7E0094609A /* MoonshotApp.swift in Sources */,
+				BB6AA24D2BFDDF02009A6FD8 /* Mission.swift in Sources */,
 				BB6AA24B2BFDDA55009A6FD8 /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
