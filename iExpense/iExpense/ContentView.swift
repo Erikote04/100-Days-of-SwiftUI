@@ -22,14 +22,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("iExpense")
+            .navigationBarBackButtonHidden(true)
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
+                NavigationLink(destination: AddView(expenses: expenses)) {
+                    Label("Add Expense", systemImage: "plus")
                 }
             }
-            .sheet(isPresented: $showingAddExpense, content: {
-                AddView(expenses: expenses)
-            })
         }
     }
     
