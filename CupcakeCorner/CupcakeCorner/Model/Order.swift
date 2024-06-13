@@ -15,6 +15,20 @@ class Order {
             }
         }
     }
+    
     var isExtraFrosting = false
     var addSprinkles = false
+    
+    var name = ""
+    var address = ""
+    var city = ""
+    var zip = ""
+    
+    var isValidAddress: Bool {
+        if name.isEmpty || address.isEmpty || city.isEmpty || zip.isEmpty {
+            return true
+        }
+        
+        return false
+    }
 }

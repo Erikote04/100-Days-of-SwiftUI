@@ -13,6 +13,7 @@
 		BBBEC2772C1B012A004744F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBBEC2762C1B012A004744F6 /* Preview Assets.xcassets */; };
 		BBBEC27E2C1B1BEF004744F6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBEC27D2C1B1BEF004744F6 /* Order.swift */; };
 		BBBEC2802C1B2041004744F6 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBEC27F2C1B2041004744F6 /* AddressView.swift */; };
+		BBBEC2842C1B58A4004744F6 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBEC2832C1B58A4004744F6 /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		BBBEC2762C1B012A004744F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BBBEC27D2C1B1BEF004744F6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		BBBEC27F2C1B2041004744F6 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		BBBEC2832C1B58A4004744F6 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				BBBEC2712C1B0129004744F6 /* ContentView.swift */,
 				BBBEC27F2C1B2041004744F6 /* AddressView.swift */,
+				BBBEC2832C1B58A4004744F6 /* CheckoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				BBBEC27E2C1B1BEF004744F6 /* Order.swift in Sources */,
 				BBBEC2802C1B2041004744F6 /* AddressView.swift in Sources */,
+				BBBEC2842C1B58A4004744F6 /* CheckoutView.swift in Sources */,
 				BBBEC2722C1B0129004744F6 /* ContentView.swift in Sources */,
 				BBBEC2702C1B0129004744F6 /* CupcakeCornerApp.swift in Sources */,
 			);
