@@ -1,7 +1,19 @@
 import Foundation
 
 @Observable
-class Order {
+class Order: Codable {
+    enum Codingkeys: String, CodingKey {
+        case _type = "type"
+        case _quantity = "quantity"
+        case _isSpecialRequestEnabled = "isSpecialRequestEnabled"
+        case _isExtraFrosting = "isExtraFrosting"
+        case _addSprinkles = "addSprinkles"
+        case _name = "name"
+        case _address = "address"
+        case _city = "city"
+        case _zip = "zip"
+    }
+    
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
     var type = 0
@@ -26,10 +38,10 @@ class Order {
     
     var isValidAddress: Bool {
         if name.isEmpty || address.isEmpty || city.isEmpty || zip.isEmpty {
-            return true
+            return false
         }
         
-        return false
+        return true
     }
     
     var cost: Decimal {
