@@ -88,8 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				BB2BA4FF2BFCAC7E0094609A /* MoonshotApp.swift */,
-				BB6AA25C2BFE0C04009A6FD8 /* View */,
 				BB6AA25D2BFE0C0E009A6FD8 /* Model */,
+				BB6AA25C2BFE0C04009A6FD8 /* View */,
 				BB6AA25E2BFE0C16009A6FD8 /* Util */,
 				BB6AA25F2BFE0D37009A6FD8 /* Data */,
 				BB2BA5032BFCAC7F0094609A /* Assets.xcassets */,
@@ -114,9 +114,9 @@
 				BB6AA2622BFE0F21009A6FD8 /* GridItemView.swift */,
 				BB6AA2642BFE137C009A6FD8 /* MissionListView.swift */,
 				BB6AA2662BFE1A22009A6FD8 /* MissionListItemView.swift */,
+				BB6AA2502BFDEAC3009A6FD8 /* MissionView.swift */,
 				BB6AA2682BFE1B2A009A6FD8 /* AstronautListView.swift */,
 				BB6AA26A2BFE1D2E009A6FD8 /* AstronautListItemView.swift */,
-				BB6AA2502BFDEAC3009A6FD8 /* MissionView.swift */,
 				BB6AA2562BFE078B009A6FD8 /* AstronautSliderView.swift */,
 				BB6AA25A2BFE0B4B009A6FD8 /* AstronautSliderItemView.swift */,
 				BB6AA2522BFE02AC009A6FD8 /* AstronautView.swift */,
