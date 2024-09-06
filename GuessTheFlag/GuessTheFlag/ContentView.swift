@@ -3,28 +3,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack() {
-            Spacer()
-            
-            VStack(alignment: .leading, spacing: 20) {
-                Text("Hello, world!")
-                Text("This is another text view")
+            ZStack {
+                VStack(spacing: 0) {
+                    Color(red: 255, green: 0, blue: 0)
+                    Color.blue
+                }
+                
+                Text("Your content")
+                    .foregroundStyle(.secondary)
+                    .padding(50)
+                    .background(.ultraThinMaterial)
             }
-            
-            Spacer()
-            
-            HStack(spacing: 20) {
-                Text("Hello, world!")
-                Text("This is another text view")
-            }
-            
-            Spacer()
-            
-            ZStack() {
-                Text("Hello, world!")
-                Text("This is another text view")
-            }
-            
-            Spacer()
+            .ignoresSafeArea()
         }
     }
 }
