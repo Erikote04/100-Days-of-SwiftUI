@@ -1,21 +1,31 @@
-//
-//  ContentView.swift
-//  GuessTheFlag
-//
-//  Created by Erik Sebastian de Erice Jerez on 6/9/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack() {
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Hello, world!")
+                Text("This is another text view")
+            }
+            
+            Spacer()
+            
+            HStack(spacing: 20) {
+                Text("Hello, world!")
+                Text("This is another text view")
+            }
+            
+            Spacer()
+            
+            ZStack() {
+                Text("Hello, world!")
+                Text("This is another text view")
+            }
+            
+            Spacer()
         }
-        .padding()
     }
 }
 
