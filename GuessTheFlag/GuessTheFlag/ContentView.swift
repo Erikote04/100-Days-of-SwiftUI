@@ -2,11 +2,43 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-        
-        RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
-        
-        AngularGradient(colors: [.red, .orange, .yellow, .green, .blue, .purple, .red], center: .center)
+        VStack {
+            Spacer()
+            
+            Button("Button 1") { }
+                .buttonStyle(.bordered)
+            
+            Button("Button 2", role: .destructive) { }
+                .buttonStyle(.bordered)
+            
+            Button("Button 3") { }
+                .buttonStyle(.borderedProminent)
+            
+            Button("Button 4", role: .destructive) { }
+                .buttonStyle(.borderedProminent)
+            
+            Spacer()
+            
+            Image(systemName: "pencil.circle")
+                .foregroundStyle(.red)
+                .font(.largeTitle)
+            
+            Spacer()
+            
+            Button("Edit", systemImage: "pencil.circle") {
+                print("Button was tapped")
+            }
+            
+            Spacer()
+            
+            Button() {
+                print("Button was tapped")
+            } label: {
+                Label("Edit", systemImage: "pencil.circle")
+            }
+            
+            Spacer()
+        }
     }
 }
 
