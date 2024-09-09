@@ -1,13 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var counries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
-    @State private var correctAnswear = Int.random(in: 0...2)
-    @State private var isShowingScore = false
-    @State private var isShowingFinalScore = false
-    @State private var scoreTitle = ""
-    @State private var score = 0
-    @State private var questionCount = 0
+    @StateObject private var vm = GuessTheFlagViewModel()
     
     var body: some View {
         ZStack {
@@ -30,15 +24,15 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                             .font(.subheadline.weight(.heavy))
                         
-                        Text(counries[correctAnswear])
+                        Text(vm.countries[vm.correctAnswear].name)
                             .font(.largeTitle.weight(.semibold))
                     }
                     
                     ForEach(0..<3) { number in
                         Button {
-                            flagTapped(number)
+                            vm.flagTapped(number)
                         } label: {
-                            Image(counries[number])
+                            Image(vm.countries[number].imageName)
                                 .clipShape(.capsule)
                                 .shadow(radius: 5)
                         }
@@ -52,7 +46,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 
-                Text("Score: \(score)")
+                Text("Score: \(vm.score)")
                     .foregroundStyle(.white)
                     .font(.title.bold())
                 
@@ -60,49 +54,16 @@ struct ContentView: View {
             }
             .padding()
         }
-        .alert(scoreTitle, isPresented: $isShowingScore) {
-            Button("Continue", action: askQuestion)
+        .alert(vm.scoreTitle, isPresented: $vm.isShowingScore) {
+            Button("Continue", action: vm.askQuestion)
         } message: {
-            Text("Your score is \(score)")
+            Text("Your score is \(vm.score)")
         }
-        .alert("Final Score", isPresented: $isShowingFinalScore) {
-            Button("Restart", action: reset)
+        .alert("Final Score", isPresented: $vm.isShowingFinalScore) {
+            Button("Restart", action: vm.reset)
         } message: {
-            Text("Your final score is \(score)")
+            Text("Your final score is \(vm.score)")
         }
-    }
-    
-    func flagTapped(_ number: Int) {
-        if number == correctAnswear {
-            scoreTitle = "Correct!"
-            score += 10
-        } else {
-            scoreTitle = "Wrong! That's the flag of \(counries[number])."
-            score -= 10
-        }
-        
-        isGameOver()
-    }
-    
-    func askQuestion() {
-        counries.shuffle()
-        correctAnswear = Int.random(in: 0...2)
-    }
-    
-    func isGameOver() {
-        questionCount += 1
-        
-        if questionCount == 10 {
-            isShowingFinalScore = true
-        } else {
-            isShowingScore = true
-        }
-    }
-    
-    func reset() {
-        score = 0
-        questionCount = 0
-        askQuestion()
     }
 }
 
