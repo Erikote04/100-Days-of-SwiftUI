@@ -1,21 +1,13 @@
-//
-//  ContentView.swift
-//  ViewsAndModifiers
-//
-//  Created by Erik Sebastian de Erice Jerez on 10/9/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isRed = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button("Hello World") {
+            isRed.toggle()
         }
-        .padding()
+        .foregroundStyle(isRed ? .red : .blue)
     }
 }
 
