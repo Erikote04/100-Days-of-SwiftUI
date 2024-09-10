@@ -1,13 +1,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isRed = false
-    
     var body: some View {
-        Button("Hello World") {
-            isRed.toggle()
+        VStack {
+            Text("Gryffindor")
+                .font(.largeTitle) // overrides the parent modifier
+            
+            Text("Hufflepuff")
+            
+            Text("Ravenclaw")
+            
+            Text("Slytherin")
         }
-        .foregroundStyle(isRed ? .red : .blue)
+        .font(.title)
     }
 }
 
