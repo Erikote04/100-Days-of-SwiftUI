@@ -2,49 +2,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .titleStyle()
-        
-        Color.blue
-            .frame(width: 300, height: 200)
-            .watermark(text: "hackingwithswift.com")
-    }
-}
-
-struct Title: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.largeTitle)
-            .padding()
-            .foregroundStyle(.white)
-            .background(.blue)
-            .clipShape(.capsule)
-    }
-}
-
-struct Watermark: ViewModifier {
-    var text: String
-    
-    func body(content: Content) -> some View {
-        ZStack(alignment: .bottomTrailing) {
-            content
-            
-            Text(text)
-                .font(.caption)
-                .foregroundStyle(.white)
-                .padding(5)
-                .background(.black)
+        GridStack(row: 4, col: 4) { row, col in
+            Image(systemName: "\(row * 4 + col).circle")
+            Text("R\(row) C\(col)")
         }
     }
 }
 
-extension View {
-    func titleStyle() -> some View {
-        modifier(Title())
-    }
+struct GridStack<Content: View>: View {
+    let row: Int
+    let col: Int
+    @ViewBuilder let content: (Int, Int) -> Content
     
-    func watermark(text: String) -> some View {
-        modifier(Watermark(text: text))
+    var body: some View {
+        VStack {
+            ForEach(0..<row, id: \.self) { row in
+                HStack {
+                    ForEach(0..<col, id: \.self) { col in
+                        content(row, col)
+                    }
+                }
+            }
+        }
     }
 }
 
