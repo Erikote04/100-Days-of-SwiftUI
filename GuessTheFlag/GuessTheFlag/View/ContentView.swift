@@ -32,9 +32,7 @@ struct ContentView: View {
                         Button {
                             vm.flagTapped(number)
                         } label: {
-                            Image(vm.countries[number].imageName)
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                            FlagImage(imageName: vm.countries[number].imageName)
                         }
                     }
                 }

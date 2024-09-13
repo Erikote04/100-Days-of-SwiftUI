@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0392CD2C9465BB007CF661 /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0392CC2C9465BB007CF661 /* FlagImage.swift */; };
 		BB5E91C32C8F1A8700FE5A78 /* GuessTheFlagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E91C22C8F1A8700FE5A78 /* GuessTheFlagViewModel.swift */; };
 		BB5E91C52C8F1DD100FE5A78 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E91C42C8F1DD100FE5A78 /* Flag.swift */; };
 		BB7FD5EB2C8AE7D400ACDC11 /* GuessTheFlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7FD5EA2C8AE7D400ACDC11 /* GuessTheFlagApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB0392CC2C9465BB007CF661 /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
 		BB5E91C22C8F1A8700FE5A78 /* GuessTheFlagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlagViewModel.swift; sourceTree = "<group>"; };
 		BB5E91C42C8F1DD100FE5A78 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		BB7FD5E72C8AE7D400ACDC11 /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				BB7FD5EC2C8AE7D400ACDC11 /* ContentView.swift */,
+				BB0392CC2C9465BB007CF661 /* FlagImage.swift */,
 				BB5E91C22C8F1A8700FE5A78 /* GuessTheFlagViewModel.swift */,
 			);
 			path = View;
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0392CD2C9465BB007CF661 /* FlagImage.swift in Sources */,
 				BB7FD5ED2C8AE7D400ACDC11 /* ContentView.swift in Sources */,
 				BB5E91C32C8F1A8700FE5A78 /* GuessTheFlagViewModel.swift in Sources */,
 				BB7FD5EB2C8AE7D400ACDC11 /* GuessTheFlagApp.swift in Sources */,
