@@ -1,50 +1,25 @@
+//
+//  WordScrambleViewModel.swift
+//  WordScramble
+//
+//  Created by Erik Sebastian de Erice Jerez on 24/9/24.
+//
+
 import SwiftUI
 
-struct ContentView: View {
-    @State private var usedWords = [String]()
-    @State private var rootWord = ""
-    @State private var newWord = ""
+class WordScrambleViewModel: ObservableObject {
+    @Published var usedWords = [String]()
+    @Published var rootWord = ""
+    @Published var newWord = ""
     
-    @State private var errorTitle = ""
-    @State private var errorMessage = ""
-    @State private var isErrorVisible = false
+    @Published var errorTitle = ""
+    @Published var errorMessage = ""
+    @Published var isErrorVisible = false
     
-    @State private var score = 0
+    @Published var score = 0
     
-    var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    TextField("Enter your word", text: $newWord)
-                        .textInputAutocapitalization(.never)
-                }
-                
-                Section {
-                    ForEach(usedWords, id: \.self) { word in
-                        HStack {
-                            Image(systemName: "\(word.count).circle")
-                            Text(word)
-                        }
-                    }
-                }
-            }
-            .navigationTitle(rootWord)
-            .onAppear(perform: startGame)
-            .onSubmit(addNewWord)
-            .alert(errorTitle, isPresented: $isErrorVisible) {
-                Button("OK") { }
-            } message: {
-                Text(errorMessage)
-            }
-            .toolbar {
-                Button("Restart") { startGame() }
-            }
-            
-            Text("Score: \(score)")
-                .font(.title)
-                .foregroundStyle(.tint)
-                .padding()
-        }
+    init() {
+        startGame()
     }
     
     func startGame() {
@@ -151,6 +126,3 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}

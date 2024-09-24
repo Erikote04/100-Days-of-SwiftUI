@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		BB57B8122C9CE01D00B880C7 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB57B8112C9CE01D00B880C7 /* start.txt */; };
+		BB75388C2CA331460056D236 /* WordScrambleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB75388B2CA331460056D236 /* WordScrambleViewModel.swift */; };
 		BBB085DC2C9B5DA900B21D91 /* WordScrambleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB085DB2C9B5DA900B21D91 /* WordScrambleApp.swift */; };
-		BBB085DE2C9B5DA900B21D91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB085DD2C9B5DA900B21D91 /* ContentView.swift */; };
+		BBB085DE2C9B5DA900B21D91 /* WordScrambleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB085DD2C9B5DA900B21D91 /* WordScrambleView.swift */; };
 		BBB085E02C9B5DAA00B21D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB085DF2C9B5DAA00B21D91 /* Assets.xcassets */; };
 		BBB085E32C9B5DAA00B21D91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB085E22C9B5DAA00B21D91 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB57B8112C9CE01D00B880C7 /* start.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		BB75388B2CA331460056D236 /* WordScrambleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleViewModel.swift; sourceTree = "<group>"; };
 		BBB085D82C9B5DA900B21D91 /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB085DB2C9B5DA900B21D91 /* WordScrambleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleApp.swift; sourceTree = "<group>"; };
-		BBB085DD2C9B5DA900B21D91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BBB085DD2C9B5DA900B21D91 /* WordScrambleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleView.swift; sourceTree = "<group>"; };
 		BBB085DF2C9B5DAA00B21D91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBB085E22C9B5DAA00B21D91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				BBB085DB2C9B5DA900B21D91 /* WordScrambleApp.swift */,
-				BBB085DD2C9B5DA900B21D91 /* ContentView.swift */,
+				BBB085DD2C9B5DA900B21D91 /* WordScrambleView.swift */,
+				BB75388B2CA331460056D236 /* WordScrambleViewModel.swift */,
 				BB57B8112C9CE01D00B880C7 /* start.txt */,
 				BBB085DF2C9B5DAA00B21D91 /* Assets.xcassets */,
 				BBB085E12C9B5DAA00B21D91 /* Preview Content */,
@@ -141,7 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBB085DE2C9B5DA900B21D91 /* ContentView.swift in Sources */,
+				BB75388C2CA331460056D236 /* WordScrambleViewModel.swift in Sources */,
+				BBB085DE2C9B5DA900B21D91 /* WordScrambleView.swift in Sources */,
 				BBB085DC2C9B5DA900B21D91 /* WordScrambleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
