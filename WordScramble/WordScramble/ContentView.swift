@@ -64,8 +64,18 @@ struct ContentView: View {
             return
         }
         
-        guard isRealWord(word: answer) else {
+        guard isReal(word: answer) else {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
+        
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word is not long enough", message: "The word must have at least 3 characters")
+            return
+        }
+        
+        guard isNotEqualToRootWord(word: answer) else {
+            wordError(title: "Word is equal to root word", message: "You only have to read the big title in your screen")
             return
         }
         
@@ -94,7 +104,7 @@ struct ContentView: View {
         return true
     }
     
-    func isRealWord(word: String) -> Bool {
+    func isReal(word: String) -> Bool {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(
@@ -106,6 +116,14 @@ struct ContentView: View {
         )
         
         return misspelledRange.location == NSNotFound
+    }
+    
+    func isLongEnough(word: String) -> Bool {
+        word.count > 3
+    }
+    
+    func isNotEqualToRootWord(word: String) -> Bool {
+        word != rootWord
     }
     
     func wordError(title: String, message: String) {
