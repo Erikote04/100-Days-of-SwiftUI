@@ -2,7 +2,6 @@ import SwiftUI
 
 struct GuessTheFlagView: View {
     @StateObject private var vm = GuessTheFlagViewModel()
-    @State private var animationDegrees = 0.0
     
     var body: some View {
         ZStack {
@@ -32,12 +31,16 @@ struct GuessTheFlagView: View {
                     ForEach(0..<3) { number in
                         Button {
                             vm.flagTapped(number)
-                            animationDegrees += 360
                         } label: {
                             FlagImage(imageName: vm.countries[number].imageName)
-                                .rotation3DEffect(.degrees(animationDegrees), axis: (x: 0, y: 1, z: 0))
+                                .rotation3DEffect(
+                                    .degrees(vm.selectedFlag == number ? vm.animationDegrees : 0),
+                                    axis: (x: 0, y: 1, z: 0)
+                                )
                         }
                         .opacity(vm.selectedFlag == nil || vm.selectedFlag == number ? 1 : 0.25)
+                        .scaleEffect(vm.selectedFlag == nil || vm.selectedFlag == number ? 1 : 0.75)
+                        .animation(.easeIn(duration: 0.5), value: vm.selectedFlag)
                     }
                 }
                 .frame(maxWidth: .infinity)

@@ -29,9 +29,11 @@ final class GuessTheFlagViewModel: ObservableObject {
     @Published var scoreTitle = ""
     @Published var score = 0
     @Published var questionCount = 0
+    @Published var animationDegrees = 0.0
     
     func flagTapped(_ number: Int) {
         selectedFlag = number
+        animationDegrees += 360
         
         if number == correctAnswear {
             scoreTitle = "Correct!"
@@ -48,6 +50,7 @@ final class GuessTheFlagViewModel: ObservableObject {
         countries.shuffle()
         correctAnswear = Int.random(in: 0...2)
         selectedFlag = nil
+        animationDegrees = 0
     }
     
     func isGameOver() {
