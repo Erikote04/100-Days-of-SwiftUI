@@ -1,7 +1,8 @@
 import SwiftUI
 
-struct ContentView: View {
+struct GuessTheFlagView: View {
     @StateObject private var vm = GuessTheFlagViewModel()
+    @State private var animationDegrees = 0.0
     
     var body: some View {
         ZStack {
@@ -31,8 +32,10 @@ struct ContentView: View {
                     ForEach(0..<3) { number in
                         Button {
                             vm.flagTapped(number)
+                            animationDegrees += 360
                         } label: {
                             FlagImage(imageName: vm.countries[number].imageName)
+                                .rotation3DEffect(.degrees(animationDegrees), axis: (x: 0, y: 1, z: 0))
                         }
                     }
                 }
@@ -66,5 +69,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    GuessTheFlagView()
 }
