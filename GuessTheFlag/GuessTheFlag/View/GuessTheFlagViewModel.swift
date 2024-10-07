@@ -22,6 +22,7 @@ final class GuessTheFlagViewModel: ObservableObject {
         Flag(name: "United States", imageName: "US")
     ].shuffled()
     
+    @Published var selectedFlag: Int? = nil
     @Published var correctAnswear = Int.random(in: 0...2)
     @Published var isShowingScore = false
     @Published var isShowingFinalScore = false
@@ -30,6 +31,8 @@ final class GuessTheFlagViewModel: ObservableObject {
     @Published var questionCount = 0
     
     func flagTapped(_ number: Int) {
+        selectedFlag = number
+        
         if number == correctAnswear {
             scoreTitle = "Correct!"
             score += 10
@@ -44,6 +47,7 @@ final class GuessTheFlagViewModel: ObservableObject {
     func askQuestion() {
         countries.shuffle()
         correctAnswear = Int.random(in: 0...2)
+        selectedFlag = nil
     }
     
     func isGameOver() {

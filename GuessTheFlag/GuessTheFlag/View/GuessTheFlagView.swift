@@ -37,6 +37,7 @@ struct GuessTheFlagView: View {
                             FlagImage(imageName: vm.countries[number].imageName)
                                 .rotation3DEffect(.degrees(animationDegrees), axis: (x: 0, y: 1, z: 0))
                         }
+                        .opacity(vm.selectedFlag == nil || vm.selectedFlag == number ? 1 : 0.25)
                     }
                 }
                 .frame(maxWidth: .infinity)
