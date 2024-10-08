@@ -5,6 +5,7 @@
 //  Created by Erik Sebastian de Erice Jerez on 8/10/24.
 //
 
+import Observation
 import SwiftUI
 
 struct ContentView: View {
@@ -21,7 +22,7 @@ struct ContentView: View {
     }
 }
 
-@Observable
+@Observable // right click -> Expand Macro
 class User {
     var firstName = "Bilbo"
     var lastName = "Baggins"
