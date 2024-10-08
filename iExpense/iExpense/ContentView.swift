@@ -1,33 +1,32 @@
-//
-//  ContentView.swift
-//  iExpense
-//
-//  Created by Erik Sebastian de Erice Jerez on 8/10/24.
-//
-
-import Observation
 import SwiftUI
 
 struct ContentView: View {
-    @State private var user = User()
-    
+    @State private var isShowingSheet = false
     var body: some View {
-        VStack {
-            Text("Your name is \(user.firstName) \(user.lastName)")
-            
-            TextField("First name", text: $user.firstName)
-            TextField("Last name", text: $user.lastName)
+        Button("Show sheet") {
+            isShowingSheet.toggle()
         }
-        .padding()
+        .sheet(isPresented: $isShowingSheet) {
+            SecondView(name: "@theerikoshea")
+                .presentationDetents([.medium, .large])
+        }
     }
 }
 
-@Observable // right click -> Expand Macro
-class User {
-    var firstName = "Bilbo"
-    var lastName = "Baggins"
+struct SecondView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var name: String
+    
+    var body: some View {
+        Text("Hello \(name)")
+            .padding()
+        
+        Button("Dismiss") {
+            dismiss()
+        }
+    }
 }
-
 #Preview {
     ContentView()
 }
