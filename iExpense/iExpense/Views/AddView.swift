@@ -11,12 +11,10 @@ struct AddView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var name = ""
-    @State private var type = "Personal"
+    @State private var type: ExpenseType = .personal
     @State private var amount = 0.0
     
     var expenses: Expenses
-    
-    let types = ["Personal", "Business"]
     
     var body: some View {
         NavigationStack {
@@ -24,12 +22,12 @@ struct AddView: View {
                 TextField("Name", text: $name)
                 
                 Picker("Type", selection: $type) {
-                    ForEach(types, id: \.self) { type in
-                        Text(type)
+                    ForEach(ExpenseType.allCases, id: \.self) { type in
+                        Text(type.rawValue)
                     }
                 }
                 
-                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add Expense")
@@ -40,6 +38,7 @@ struct AddView: View {
                     expenses.items.append(item)
                     dismiss()
                 }
+                .disabled(name.isEmpty || amount.isZero)
             }
         }
     }

@@ -17,7 +17,7 @@ struct ExpenseRow: View {
                 Text(item.name)
                     .font(.headline)
                 
-                Text(item.type)
+                Text(item.type.rawValue)
             }
             
             Spacer()
@@ -30,7 +30,7 @@ struct ExpenseRow: View {
 
 #Preview {
     ExpenseRow(
-        item: ExpenseItem(name: "Launch", type: "Personal", amount: 20),
+        item: ExpenseItem(name: "Launch", type: ExpenseType.personal, amount: 20),
         color: .orange
     )
 }
