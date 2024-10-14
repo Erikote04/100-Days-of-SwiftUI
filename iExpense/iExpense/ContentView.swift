@@ -4,25 +4,34 @@ struct ContentView: View {
     @State private var expenses = Expenses()
     @State private var isShowingAddExpense = false
     
+    var personalExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Personal" }
+    }
+    
+    var businessExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Business" }
+    }
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            
-                            Text(item.type)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                            .foregroundStyle(decorateAmount(item.amount))
+                Section("Personal") {
+                    ForEach(personalExpenses) { item in
+                        ExpenseRow(item: item, color: decorateAmount(item.amount))
+                    }
+                    .onDelete { offsets in
+                        removeItems(at: offsets, from: personalExpenses)
                     }
                 }
-                .onDelete(perform: removeItems)
+                
+                Section("Business") {
+                    ForEach(businessExpenses) { item in
+                        ExpenseRow(item: item, color: decorateAmount(item.amount))
+                    }
+                    .onDelete { offsets in
+                        removeItems(at: offsets, from: businessExpenses)
+                    }
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
@@ -36,8 +45,12 @@ struct ContentView: View {
         }
     }
     
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+    func removeItems(at offsets: IndexSet, from filteredItems: [ExpenseItem]) {
+        for i in offsets {
+            if let actualIndex = expenses.items.firstIndex(where: { $0.id == filteredItems[i].id }) {
+                expenses.items.remove(at: actualIndex)
+            }
+        }
     }
     
     func decorateAmount(_ amount: Double) -> Color {
