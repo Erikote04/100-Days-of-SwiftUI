@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct iExpenseView: View {
     @StateObject private var viewModel = ExpensesViewModel()
     private let decorator: DecoratorProtocol = Decorator()
     
@@ -42,5 +42,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    iExpenseView()
 }
