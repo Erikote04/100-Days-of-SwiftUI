@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct MissionView: View {
-    struct CrewMember {
-        let role: String
-        let astronaut: Astronaut
-    }
-    
     let mission: Mission
     let crew: [CrewMember]
     
@@ -60,27 +55,7 @@ struct MissionView: View {
                             NavigationLink {
                                 AstronautView(astronaut: crewMember.astronaut)
                             } label: {
-                                HStack {
-                                    Image(crewMember.astronaut.id)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 64, height: 64)
-                                        .clipShape(.circle)
-                                        .overlay(
-                                            Circle()
-                                                .strokeBorder(.white, lineWidth: 1)
-                                        )
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(crewMember.astronaut.name)
-                                            .font(.headline)
-                                            .foregroundStyle(.white)
-                                        
-                                        Text(crewMember.role)
-                                            .foregroundStyle(.gray)
-                                    }
-                                }
-                                .padding(.horizontal)
+                                AstronautCellView(crewMember: crewMember)
                             }
                         }
                     }
