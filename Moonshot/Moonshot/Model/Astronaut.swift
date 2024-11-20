@@ -1,5 +1,5 @@
 //
-//  Atronaut.swift
+//  Astronaut.swift
 //  Moonshot
 //
 //  Created by Erik Sebastian de Erice Jerez on 16/10/24.
