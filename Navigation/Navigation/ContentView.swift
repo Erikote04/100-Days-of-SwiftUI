@@ -11,9 +11,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(0..<10) { number in
-                NavigationLink("Row \(number)") {
-                    DetailView(number: number)
-                }
+                NavigationLink("Select \(number)", value: number)
+            }
+            .navigationDestination(for: Int.self) { number in
+                DetailView(number: number)
             }
         }
     }
