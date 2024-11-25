@@ -8,39 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var path = NavigationPath()
+    @State private var path = [Int]()
+    // @State private var path = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $path) {
-            List {
-                Section("Int") {
-                    ForEach(0..<5) { i in
-                        NavigationLink("Select Number \(i)", value: i)
-                    }
+            DetailView(path: $path, number: 0)
+                .navigationDestination(for: Int.self) { number in
+                    DetailView(path: $path, number: number)
                 }
-                
-                Section("String") {
-                    ForEach(0..<5) { i in
-                        NavigationLink("Select String \(i)", value: String(i))
-                    }
-                }
-            }
-            .toolbar {
-                Button("Push 25") {
-                    path.append(25)
-                }
-                
-                Button("Push Years") {
-                    path.append("Years")
-                }
-            }
-            .navigationDestination(for: Int.self) { number in
-                Text("Selected Number: \(number)")
-            }
-            .navigationDestination(for: String.self) { string in
-                Text("Selected String: \(string)")
-            }
         }
+    }
+}
+
+struct DetailView: View {
+    @Binding var path: [Int]
+    // @Binding var path: NavigationPath
+    
+    let number: Int
+    
+    var body: some View {
+        NavigationLink("Go to random number", value: Int.random(in: 1...1000))
+            .navigationTitle("Number \(number)")
+            .toolbar {
+                Button("Home") {
+                    path.removeAll()
+                    // path = NavigationPath()
+                }
+            }
     }
 }
 
