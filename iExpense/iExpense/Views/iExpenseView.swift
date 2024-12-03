@@ -27,14 +27,11 @@ struct iExpenseView: View {
             }
             .navigationTitle("iExpense")
             .toolbar {
-                Button(action: {
-                    viewModel.isShowingAddExpense = true
-                }) {
+                NavigationLink {
+                    AddView(expenses: viewModel.expenses)
+                } label: {
                     Label("Add Expense", systemImage: "plus")
                 }
-            }
-            .sheet(isPresented: $viewModel.isShowingAddExpense) {
-                AddView(expenses: viewModel.expenses)
             }
         }
     }

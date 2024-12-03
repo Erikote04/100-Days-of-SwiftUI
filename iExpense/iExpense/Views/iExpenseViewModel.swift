@@ -9,7 +9,6 @@ import SwiftUI
 
 class ExpensesViewModel: ObservableObject {
     @Published var expenses = Expenses()
-    @Published var isShowingAddExpense = false
 
     var personalExpenses: [ExpenseItem] {
         expenses.items.filter { $0.type == .personal }
